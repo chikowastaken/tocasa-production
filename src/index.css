@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TOCASA Design System - Premium Home Decor */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/Loopple/fira-go/FiraGO.css');
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --tocasa-red: 358 87% 52%;
+    --tocasa-red-dark: 358 87% 45%;
+    --tocasa-red-light: 358 87% 60%;
+    
+    /* Light Mode */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    --primary: 358 87% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 358 87% 52%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(0 0% 100%) 100%);
+    --card-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05);
+    --card-shadow-hover: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 358 87% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 358 87% 52%;
+  }
+
+  .dark {
+    /* Dark Mode - Red + Black Premium */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 358 87% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 96%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 14%;
+    --accent-foreground: 0 0% 96%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 358 87% 52%;
+
+    /* Custom tokens dark */
+    --hero-gradient: linear-gradient(135deg, hsl(0 0% 6%) 0%, hsl(0 0% 4%) 100%);
+    --card-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.3);
+    --card-shadow-hover: 0 12px 24px -8px rgba(237, 32, 38, 0.15);
+
+    /* Sidebar dark */
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 358 87% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 14%;
+    --sidebar-ring: 358 87% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'FiraGO', 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'FiraGO', 'Playfair Display', serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .tocasa-container {
+    @apply max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8;
+  }
+
+  .tocasa-hero-text {
+    font-family: 'FiraGO', 'Playfair Display', serif;
+    @apply text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight;
+  }
+
+  .tocasa-subtitle {
+    @apply text-xs sm:text-sm md:text-base uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground font-medium;
+  }
+
+  .tocasa-card {
+    @apply bg-card rounded-md sm:rounded-lg overflow-hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+  }
+
+  .tocasa-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .tocasa-badge {
+    @apply inline-flex items-center px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium bg-primary text-primary-foreground;
+  }
+
+  .tocasa-section {
+    @apply py-10 sm:py-16 md:py-24;
+  }
+
+  .tocasa-grid {
+    @apply grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4 md:gap-6;
+  }
+
+  .tocasa-button-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-5 sm:px-8 py-2.5 sm:py-3 font-medium tracking-wide transition-all duration-300;
+  }
+
+  .tocasa-button-outline {
+    @apply border border-foreground text-foreground hover:bg-foreground hover:text-background px-8 py-3 font-medium tracking-wide transition-all duration-300;
+  }
+
+  .tocasa-input {
+    @apply bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200;
+  }
+
+  .skeleton-shimmer {
+    @apply relative overflow-hidden bg-muted;
+  }
+
+  .skeleton-shimmer::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--background) / 0.4),
+      transparent
+    );
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
