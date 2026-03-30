@@ -4,7 +4,9 @@
       "Bash(git init:*)",
       "Bash(git remote:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git rm:*)",
+      "Bash(git push:*)"
     ],
     "additionalDirectories": [
       "/Users/giorgichikovani/Desktop/tocasa-real/.git"
